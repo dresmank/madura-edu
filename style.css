@@ -1,0 +1,368 @@
+/* ======================================= */
+/* 1. RESET DAN FONT DASAR */
+/* ======================================= */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #00000000;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ======================================= */
+/* 2. HEADER DAN NAVIGASI (Dengan Gambar Anda) */
+/* ======================================= */
+header {
+    background-image: url('images/madura bg.png'); 
+    background-size: cover;      
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 220px; 
+    color: white; 
+    padding: 0; 
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative; 
+}
+
+/* Overlay untuk Keterbacaan Teks */
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Sedikit lebih transparan (0.3) */
+    z-index: 1; 
+}
+
+/* Pastikan Teks Berada di Atas Overlay */
+header h1, nav {
+    position: relative;
+    z-index: 2; 
+}
+
+header h1 {
+    margin-top: 50px; 
+    margin-bottom: 20px;
+    font-size: 2.8em;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.3); 
+}
+
+
+/* ======================================= */
+/* 3. TATA LETAK UTAMA */
+/* ======================================= */
+main {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+section {
+    background-color: #ffffff;
+    padding: 40px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+}
+
+/* Styling Khusus untuk Bagian Hero */
+.hero-content {
+    /* Mirip seperti section, tapi mungkin lebih menonjol */
+    border-top: 5px solid #FFD700; /* Garis kuning sesuai gambar */
+}
+
+h2 {
+    color: #8B4513; 
+    font-size: 2.2em; /* Sedikit lebih besar */
+    border-bottom: 3px solid #FFD700; 
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #B22222; 
+    margin-top: 0;
+    font-size: 1.8em; /* Lebih menonjol */
+}
+
+/* ======================================= */
+/* 4. TATA LETAK SOROTAN UTAMA (Grid 2 Kolom) */
+/* ======================================= */
+.highlight-section {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Teks lebih kecil, Gambar lebih besar */
+    gap: 40px;
+    align-items: center; /* Konten sejajar vertikal */
+    padding: 30px 40px;
+}
+
+.highlight-image img {
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ======================================= */
+/* 5. STYLING LAINNYA (Tombol, Gambar, Footer) */
+/* ======================================= */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; 
+    margin: 15px 0;
+    display: block; 
+}
+
+/* Tombol CTA tetap sama */
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    margin-top: 20px;
+    background-color: #008000; 
+    color: white;
+    font-size: 1.05em;
+    font-weight: bold;
+    text-decoration: none;
+    border: none;
+    border-radius: 30px; 
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #008000; 
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    background-color: #333;
+    color: #ccc;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    font-size: 0.9em;
+}
+
+/* MEDIA QUERIES untuk Responsif */
+@media (max-width: 768px) {
+    .highlight-section {
+        grid-template-columns: 1fr; /* Di layar kecil, ubah menjadi 1 kolom */
+    }
+    .highlight-section {
+        padding: 20px;
+    }
+}
+/* GAYA KHUSUS UNTUK GAMBAR DI HIGHLIGHT SECTION */
+
+/* Menargetkan gambar (img) yang berada di dalam div class "highlight-image" */
+.highlight-image img {
+    /* Mengatur tinggi gambar secara spesifik */
+    height: 300px; 
+    
+    /* Memastikan gambar mengisi lebar kolomnya */
+    width: 100%; 
+    
+    /* Penting: Memastikan gambar menutupi area 300px tanpa distorsi, 
+       meskipun bagian tepi gambar mungkin terpotong. */
+    object-fit: cover; 
+    
+    /* Tambahan: Transisi halus saat gambar dimuat */
+    transition: transform 0.3s ease;
+}
+
+.highlight-image img:hover {
+    transform: scale(1.02); /* Sedikit membesar saat kursor di atasnya (efek visual) */
+}
+
+/* =========================================
+   Gaya Khusus Kontak Kami (kontak.html) - REVISI
+   ========================================= */
+
+
+
+/* Penyesuaian judul halaman kontak */
+.contact-section h2 {
+    font-size: 2.8em;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+}
+
+/* =========================================
+   Gaya Khusus Kontak Kami (kontak.html) - REVISI UKURAN KARTU
+   ========================================= */
+
+.contact-section {
+    /* Padding di atas dan bawah lebih ringkas */
+    padding: 60px 0px; 
+    background-image: url('images/background.kontak.png');
+    background-size: cover;
+    width: 100%;
+    margin: 0;
+    background-position: center;
+    background-color: #00000000;
+}
+
+.team-grid {
+    display: grid;
+    /* Jarak antar kartu dikurangi */
+    gap: var(--spacing-md); 
+    
+    
+    /* Lebar minimum kartu dikurangi (dari 320px menjadi 260px) */
+    grid-template-columns: repeat(3, minmax(260px, 1fr)); 
+    margin-top: var(--spacing-md);
+    max-width: 900px;
+    margin : 40px auto;
+    gap: 35px;
+}
+
+.team-card {
+    /* Padding di dalam kartu dikurangi (dari 25px menjadi 15px) */
+    padding: 15px; 
+    border-radius: 10px; /* Sedikit lebih kecil */
+    box-shadow: 0 4px 15px rgba(227, 10, 162, 0.08); /* Shadow dibuat lebih halus */
+    min-height: 220px; /* Tinggi minimum dikurangi */
+    background-color: #ffffffab;
+}
+
+.team-card:hover {
+    transform: translateY(-4px);
+    /* Efek melayang sedikit dikurangi */
+}
+
+/* Konten Teks di dalam Kartu (Dibuat lebih ringkas) */
+.team-card-content {
+    padding: var(--spacing-sm) 0;
+}
+
+.team-card h3 {
+    font-size: 1.3em; /* Nama sedikit lebih kecil */
+    margin-bottom: 3px;
+}
+
+.team-card .role {
+    font-size: 0.9em; /* Ukuran Role sedikit lebih kecil */
+    margin-bottom: 3px;
+}
+
+.team-card p {
+    font-size: 0.85em;
+    margin-bottom: var(--spacing-sm);
+}
+
+.contact-wa {
+    padding-top: var(--spacing-sm);
+    
+}
+
+.contact-wa a {
+    /* Padding Tombol WA dikurangi */
+    background-color: #833AB4;
+    padding: 8px 15px; 
+    font-size: 0.9em;
+    box-shadow: 0 3px 8px rgba(201, 12, 113, 0.3);
+}
+
+.contact-wa i {
+    font-size: 1em;
+}
+
+.btn-lokasi {
+    /* Gaya tombol lainnya: background-color: var(--color-secondary); padding: dll. */
+    
+    /* Ini akan menciptakan jarak di atas tombol */
+    margin-top: 10px; /* Sesuaikan nilai ini */
+    
+    /* Penting: Margin hanya bekerja dengan baik jika tombol adalah block atau inline-block */
+    display: inline-block; 
+}
+
+.wisata-description {
+    /* Ini akan menciptakan jarak di bawah teks deskripsi (Paragraf) */
+    margin-bottom: 45px; /* Sesuaikan nilai ini untuk menambah/mengurangi jarak */
+}
+
+/* Pastikan Anda menggunakan kelas ini di HTML: */
+/* <p class="wisata-description">Pantai Sembilan di Gili Genting, Sumenep, adalah...</p> */
+
+.card {
+    /* Warna Abu-abu Sangat Gelap untuk Kontras (seperti yang disepakati sebelumnya) */
+    background-color: #ffffff; 
+    padding: 20px;
+    border-radius: 10px;
+    
+    /* 1. Tambahkan TRANSISI untuk animasi yang mulus */
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    
+    /* Box Shadow awal yang lembut */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); 
+}
+
+/* 2. Gaya saat mouse diarahkan (HOVER EFFECT) */
+.card:hover {
+    /* Efek Pop-up: Mengangkat elemen 5 piksel ke atas */
+    transform: translateY(-5px); 
+    
+    /* Efek Kedalaman: Menambah bayangan agar tampak melayang */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), /* Bayangan Utama */
+                0 0 10px rgba(255, 255, 255, 0.1); /* Sedikit cahaya (glow) opsional */
+    
+    /* Opsi 1: Sedikit pembesaran (jika diinginkan) */
+    /* transform: scale(1.02); */ 
+}
+
+/* Definisikan kelas seragam (misal: contact-button) */
+.wa-button, .ig-button, .wa-button-purple {
+    display: block;
+    text-align: center;
+    padding: 10px 10px;
+    border-radius: 50px;
+    margin-top: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white; 
+    
+    /* Warna Ungu yang Seragam untuk semua tombol */
+    background-color: #833AB4; /* Warna Ungu */
+    
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+/* Gaya Hover Seragam */
+.wa-button:hover, .ig-button:hover, .wa-button-purple:hover {
+    background-color: #C13584; /* Warna Magenta yang sedikit berbeda */
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(131, 58, 180, 0.6); /* Efek glow ungu */
+}
+
+.backtak{
+    background-image: url('images/background.kontak.png');
+}
+
+inner-content-wrapper {
+    max-width: 1200px; /* Batasi lebar konten agar rapi di tengah */
+    margin: 0 auto;    /* PENTING: Menengahkan kotak-kotak di layar */
+    padding: 0 20px;   /* Beri sedikit padding horizontal agar konten tidak menempel ke tepi layar HP */
+}
+
